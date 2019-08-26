@@ -26,8 +26,8 @@ class Place extends BaseEntity {
   @Column({ type: "boolean", default: false })
   isFav: boolean;
 
-  @CreateDateColumn() createAt: string;
+  @CreateDateColumn() createdAt: string;
 
-  @UpdateDateColumn() updateAt: string;
+  @UpdateDateColumn() updatedAt: string;
 }
 export default Place;
