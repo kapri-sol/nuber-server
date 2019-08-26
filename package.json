@@ -14,10 +14,15 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "dev": "cd src && nodemon --exec ts-node index.ts -e ts, garphql"
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts, garphql",
+    "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "cors": "^2.8.5",
+    "gql-merge": "^0.0.6",
+    "graphql-to-typescript": "^0.1.2",
     "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.2",
     "helmet": "^3.20.0",
