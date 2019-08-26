@@ -7,15 +7,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryGeneratedColumn,
   ManyToOne,
   OneToMany,
+  PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
 import Chat from "./Chat";
 import Message from "./Message";
 import Ride from "./Ride";
-import Verification from "./Verifiation";
+import Verification from "./Verification";
 
 const BCRYPT_ROUNDS = 10;
 
@@ -23,9 +23,9 @@ const BCRYPT_ROUNDS = 10;
 class User extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
-  @Column({ type: "text", unique: true })
+  @Column({ type: "text", nullable: true })
   @IsEmail()
-  email: string;
+  email: string | null;
 
   @Column({ type: "boolean", default: false })
   verifiedEmail: boolean;
@@ -70,7 +70,7 @@ class User extends BaseEntity {
   lastOrientation: number;
 
   @Column({ type: "text", nullable: true })
-  fdId: string;
+  fbId: string;
 
   @ManyToOne(type => Chat, chat => chat.participants)
   chat: Chat;
@@ -82,14 +82,14 @@ class User extends BaseEntity {
   verifications: Verification[];
 
   @OneToMany(type => Ride, ride => ride.passenger)
-  rideAsPassenger: Ride[];
+  ridesAsPassenger: Ride[];
 
   @OneToMany(type => Ride, ride => ride.driver)
-  rideAsDriver: Ride[];
+  ridesAsDriver: Ride[];
 
-  @CreateDateColumn() createAt: string;
+  @CreateDateColumn() createdAt: string;
 
-  @UpdateDateColumn() updateAt: string;
+  @UpdateDateColumn() updatedAt: string;
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;

@@ -33,12 +33,12 @@ class Verification extends BaseEntity {
   @ManyToOne(type => User, user => user.verifications)
   user: User;
 
-  @CreateDateColumn() createAt: string;
+  @CreateDateColumn() createdAt: string;
 
-  @UpdateDateColumn() updateAt: string;
+  @UpdateDateColumn() updatedAt: string;
 
   @BeforeInsert()
-  createPublicKey(): void {
+  createKey(): void {
     if (this.target === PHONE) {
       this.key = Math.floor(Math.random() * 100000).toString();
     } else if (this.target === EMAIL) {
@@ -48,5 +48,4 @@ class Verification extends BaseEntity {
     }
   }
 }
-
 export default Verification;
