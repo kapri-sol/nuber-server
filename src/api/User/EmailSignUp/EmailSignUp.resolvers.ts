@@ -21,7 +21,8 @@ const resolvers: Resolvers = {
             token: null
           };
         } else {
-          const newUser = await User.create({ ...args }).save();
+          //   const newUser = await User.create({ ...args }).save();
+          await User.create({ ...args }).save();
           return {
             ok: true,
             error: null,
