@@ -8,6 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^12.7.2",
+    "@types/twilio": "^0.0.10",
     "babel-runtime": "^6.26.0",
     "dotenv": "^8.1.0",
     "gql-merge": "^0.0.6",
@@ -35,6 +36,7 @@
     "merge-graphql-schemas": "^1.7.0",
     "morgan": "^1.9.1",
     "pg": "^7.12.1",
+    "twilio": "^3.33.4",
     "typeorm": "^0.2.18"
   }
 }
