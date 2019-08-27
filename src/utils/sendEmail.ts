@@ -16,8 +16,8 @@ export const sendVerificationEmail = (adress, secret) => {
   const email = {
     from: "kapri@nuber.com",
     to: adress,
-    subject: "🔒Login Secret for Prismagram🔒",
-    html: `Hello! Your login secret it ${secret}.<br/>Copy paste on the app/website to log in`
+    subject: "🔒Login Secret for Nuber🔒",
+    html: `Verify your email by clicking <a href="http://nuber.com/verification/${secret}>here</a>`
   };
   return sendMail(email);
 };
