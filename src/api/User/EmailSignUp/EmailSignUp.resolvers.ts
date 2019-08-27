@@ -6,7 +6,7 @@ import {
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import createJWT from "../../../utils/createJWT";
-import { sendVerificationtEmail } from "../../../utils/sendEmail";
+import { sendVerificationEmail } from "../../../utils/sendEmail";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -35,10 +35,7 @@ const resolvers: Resolvers = {
                 payload: newUser.email,
                 target: "EMAIL"
               }).save();
-              await sendVerificationtEmail(
-                newUser.email,
-                emailVerification.key
-              );
+              await sendVerificationEmail(newUser.email, emailVerification.key);
             }
             const token = createJWT(newUser.id);
             return {

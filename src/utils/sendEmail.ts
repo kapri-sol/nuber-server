@@ -12,7 +12,7 @@ const sendMail = email => {
   return client.sendMail(email);
 };
 
-export const sendVerificationtEmail = (adress, secret) => {
+export const sendVerificationEmail = (adress, secret) => {
   const email = {
     from: "kapri@nuber.com",
     to: adress,
@@ -22,4 +22,4 @@ export const sendVerificationtEmail = (adress, secret) => {
   return sendMail(email);
 };
 
-export default sendVerificationtEmail;
+export default sendVerificationEmail;
