@@ -3,7 +3,7 @@ import { ConnectionOptions } from "typeorm";
 const connectionOptions: ConnectionOptions = {
   type: "postgres",
   database: "nuber",
-  synchronize: true,
+  synchronize: false,
   logging: true,
   entities: ["entities/**/*.*"],
   host: process.env.DB_ENDPOINT,
